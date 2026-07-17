@@ -1,0 +1,1 @@
+Esta pasta reúne toda a documentação de planejamento utilizada durante o projeto de testes

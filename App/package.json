@@ -1,0 +1,11 @@
+{
+  "name": "techstore-carrinho",
+  "version": "1.0.0",
+  "description": "Carrinho de compras em HTML, CSS e JavaScript",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["carrinho", "ecommerce", "javascript"],
+  "license": "MIT"
+}

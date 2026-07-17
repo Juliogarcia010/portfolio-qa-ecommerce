@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechStore — Carrinho de Compras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#produtos" class="logo" data-nav="produtos">
+        <span class="logo__icon">🛒</span>
+        TechStore
+      </a>
+      <nav class="nav">
+        <a href="#produtos" class="nav__link nav__link--active" data-nav="produtos">Produtos</a>
+        <a href="#carrinho" class="nav__link" data-nav="carrinho">
+          Carrinho
+          <span class="nav__badge" id="cart-badge">0</span>
+        </a>
+        <a href="#sobre" class="nav__link" data-nav="sobre">Sobre</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Página: Produtos -->
+    <section id="page-produtos" class="page page--active">
+      <div class="container">
+        <div class="page-header">
+          <h1>Nossos Produtos</h1>
+          <p>Explore nossa seleção e adicione itens ao seu carrinho.</p>
+        </div>
+        <div class="products-grid" id="products-grid"></div>
+      </div>
+    </section>
+
+    <!-- Página: Carrinho -->
+    <section id="page-carrinho" class="page">
+      <div class="container">
+        <div class="page-header">
+          <h1>Seu Carrinho</h1>
+          <p>Revise seus itens antes de finalizar a compra.</p>
+        </div>
+
+        <div class="cart-layout">
+          <div class="cart-items" id="cart-items"></div>
+
+          <aside class="cart-summary">
+            <h2>Resumo do Pedido</h2>
+            <div class="cart-summary__row">
+              <span>Subtotal dos itens</span>
+              <span id="cart-subtotal">R$ 0,00</span>
+            </div>
+            <div class="cart-summary__row cart-summary__row--total">
+              <span>Total</span>
+              <span id="cart-total">R$ 0,00</span>
+            </div>
+            <button type="button" class="btn btn--primary btn--full" id="btn-checkout" disabled>
+              Finalizar Compra
+            </button>
+            <a href="#produtos" class="btn btn--secondary btn--full" data-nav="produtos">
+              Continuar Comprando
+            </a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Página: Sobre (demonstra persistência R09 ao navegar) -->
+    <section id="page-sobre" class="page">
+      <div class="container">
+        <div class="page-header">
+          <h1>Sobre a TechStore</h1>
+          <p>Demonstração de persistência do carrinho entre páginas.</p>
+        </div>
+        <div class="about-card">
+          <p>
+            Esta loja virtual foi desenvolvida como demonstração de um carrinho de compras
+            em memória. Navegue entre as páginas — seus produtos permanecem salvos
+            durante toda a sessão do navegador.
+          </p>
+          <p>
+            Itens no carrinho agora:
+            <strong id="about-cart-count">0</strong>
+          </p>
+          <a href="#carrinho" class="btn btn--primary" data-nav="carrinho">Ver Carrinho</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 TechStore — Carrinho de Compras (HTML, CSS &amp; JavaScript)</p>
+    </div>
+  </footer>
+
+  <!-- Modal de finalização -->
+  <div class="modal" id="checkout-modal" aria-hidden="true">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__content" role="dialog" aria-labelledby="modal-title">
+      <button type="button" class="modal__close" data-close-modal aria-label="Fechar">&times;</button>
+      <div class="modal__icon">✅</div>
+      <h2 id="modal-title">Compra Finalizada!</h2>
+      <p id="modal-message"></p>
+      <button type="button" class="btn btn--primary btn--full" data-close-modal>Fechar</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
